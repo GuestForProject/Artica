@@ -1,0 +1,1 @@
+$path = $_server['document_root']

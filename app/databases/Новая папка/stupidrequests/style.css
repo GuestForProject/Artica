@@ -1,0 +1,36 @@
+body {
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: beige;
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 5px 5px 10px #849481;
+}
+input, textarea {
+    outline: none;
+    border: none;
+    background-color: #849481;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+textarea {
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.button {
+    cursor: pointer;
+}
