@@ -1,5 +1,5 @@
 <?php 
-    $host = '127.0.0.1';
+    $host = '127.0.0.1:3306';
     $data = 'Aritica';
     $user = 'root';
     $pass = '';
@@ -9,6 +9,7 @@
     try {
         $pdo = new PDO("mysql:dbname=$data;host=$host;charset=utf8", $user, $pass, $options);
     } catch (PDOException $i) {
+        echo $i;
         die('Умер из-за ошибки подключения');
     }
 

@@ -1,6 +1,6 @@
 <?php
     require 'app/controllers/users.php';
-    require 'components/OpenLayout.php';
+    require 'components/openUserLayout.php';
 ?>
 
     <form class="justify-content-md-center" method="post" action="reg.php">

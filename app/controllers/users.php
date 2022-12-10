@@ -4,8 +4,20 @@ require_once 'app/databases/db.php';
 
 $isSubmit = false;
 $errMsg = '';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+function userAuth($array) {
+    $_SESSION['id'] = $array['id'];
+    $_SESSION['login'] = $array['username'];
+    $_SESSION['admin'] = $array['admin'];
+
+    if ($_SESSION['admin'] == 1) {
+        header('Location: http://artica-main/admin/posts');
+    } else {
+        header('Location: http://artica-main/');
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['button-reg'])) {
     $admin = 0;
     $login = trim($_POST['login']);
     $email = trim($_POST['email']);
@@ -21,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $existance = selectOne('users', ['email' => $email]);
 
-        if ($existance['email'] === $email) {
-            $errMsg = 'Пользователь такой с такой почтой уже зарегистрирован!';
+        if ($existance['email'] == $email) {
+            $errMsg = "Пользователь $login с такой почтой уже зарегистрирован!";
         } else {
             $pass = password_hash($passF, PASSWORD_DEFAULT);
             $post = [
@@ -32,14 +44,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'password' => $pass,
             ];
             $id = insert('users', $post);
-            $errMsg = "Пользователь " . "<strong>" . $login . "</strong>" . " успешно зарегестрирован";
+            $user = selectOne('users', ['id' => $id]);
+            userAuth($user);
         }
-
-
-
     }
+} else if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['button-auth'])) {
+    $email = trim($_POST['email']);
+    $passF = trim($_POST['passF']);
+
+    if ($email == '' || $passF == '') {
+        $errMsg = 'Не все поля заполнены!';
+    } else {
+        $existance = selectOne('users', ['email' => $email]);
+
+        if ($existance && password_verify($passF, $existance['password'])) {
+            userAuth($existance);
+        } else {
+            $errMsg = 'Ошибка входа.';
+        }
+    }
+
+
+
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    echo 'GET';
     $login = '';
     $email = '';
 }

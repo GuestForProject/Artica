@@ -1,5 +1,7 @@
 <?php
-    require 'components/OpenLayout.php';
+    require 'app/controllers/users.php';
+
+    require 'components/openUserLayout.php';
     require 'pages/ServicesContent.php';
     require 'components/CloseLayout.php';
 ?>
