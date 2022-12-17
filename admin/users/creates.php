@@ -6,7 +6,7 @@
 
 <div class="posts col-9" style="width: 50%; margin: 0 auto;">
     <div class="button row">
-        <a href="admin/users/create.php" class="col-2 btn btn-success">Создать</a>
+        <a href="admin/users/create.php" class="col-3 btn btn-success">Создать</a>
         <span class="col-1"></span>
         <a href="admin/users/index.php" class="col-3 btn btn-warning">Редактировать</a>
     </div>

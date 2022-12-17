@@ -6,9 +6,9 @@
 
 <div style="width: 50%; margin: 0 auto">
     <div class="button row" >
-        <a href="creates.php" class="col-2 btn btn-success">Создать пост</a>
+        <a href="creates.php" class="col-3 btn btn-success">Создать пост</a>
         <span class="col-1"></span>
-        <a href="index.php" class="col-2 btn btn-warning">Редактирование постов</a>
+        <a href="index.php" class="col-3 btn btn-warning">Редактирование постов</a>
     </div>
     <div class="row title-table" style="text-align: center; margin-top: 25px">
         <h2>Управление записями</h2>

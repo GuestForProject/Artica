@@ -1,6 +1,6 @@
 <?php 
     $host = '127.0.0.1:3306';
-    $data = 'Aritica';
+    $data = 'Artica';
     $user = 'root';
     $pass = '';
     $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
